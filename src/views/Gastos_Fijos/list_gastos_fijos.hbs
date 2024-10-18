@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row mt-5">
+        {{#if gastos_fijos.length}}
+        <!-- Mostrar tabla si hay gastos fijos -->
+        <div class="col-md-12">
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr class="table-dark">
+                        <th>Nombre</th>
+                        <th>Valor</th>
+                        <th>Fecha</th>
+                        <th>Categoría</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each gastos_fijos}}
+                    <tr>
+                        <td>{{nombre_gastof}}</td>
+                        <td>{{valor_gastof}}</td>
+                        <td>{{fecha}}</td>
+                        <td>{{categoria}}</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a href="#" class="btn btn-warning">Editar</a>
+                                <a href="#" class="btn btn-danger">Eliminar</a>
+                            </div>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+                <tfoot>
+                    <tr class="table-dark">
+                        <td colspan="5">REGISTRO DE GASTOS FIJOS</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        {{else}}
+        <!-- Mostrar el mensaje si no hay gastos fijos -->
+        <div class="card text-center mx-auto" style="width: 350px;">
+            <div class="card-header">
+                <h3>Ingresa tus gastos fijos:</h3>
+            </div>
+            <div class="card-body">
+                <p>Presiona este botón para que puedas registrar un nuevo gasto fijo</p>
+                <a href="#" class="btn btn-primary">Agregar</a>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</div>

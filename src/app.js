@@ -2,10 +2,17 @@ import express, { json } from 'express';
 import morgan from 'morgan';
 import { join, dirname } from 'path'; 
 import { fileURLToPath } from 'url';
+import { engine } from 'express-handlebars';
+import Gastosf from './Routes/gastosfijos.routes.js'; 
+
 
 // Inicialización 
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+// Usa el router para manejar las rutas de gastos fijos
+app.use(Gastosf);
+
 
 // Configuración 
 app.set('port', process.env.PORT || 3000);
@@ -25,7 +32,7 @@ app.use(express.json());
 
 // Routes 
 app.get('/', (req, res) => {
-    res.json({ "message": "Hola" });
+    res.render('index');
 });
 
 // Archivos públicos 
